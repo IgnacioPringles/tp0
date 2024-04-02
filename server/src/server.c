@@ -16,7 +16,7 @@ int main(void) {
 			break;
 		case PAQUETE:
 			lista = recibir_paquete(cliente_fd);
-			log_info(logger, "Me llegaron los siguientes valores:\n");
+			log_info(logger, "Me llegaron los siguientes valores:");
 			list_iterate(lista, (void*) iterator);
 			break;
 		case -1:
