@@ -74,14 +74,14 @@ int main(void)
 
 t_log* iniciar_logger(void)
 {
-	t_log* nuevo_logger;
+	t_log* nuevo_logger = log_create("tp0.log", "tp0", true, LOG_LEVEL_INFO);
 
 	return nuevo_logger;
 }
 
 t_config* iniciar_config(void)
 {
-	t_config* nuevo_config;
+	t_config* nuevo_config = config_create("cliente.config");
 
 	return nuevo_config;
 }
