@@ -16,6 +16,12 @@ int main(void)
 
 	logger = iniciar_logger();
 
+	if (logger == NULL) {
+		log_error(logger, "Error al iniciar el logger");
+		exit(1);
+	}
+	
+
 	// Usando el logger creado previamente
 	// Escribi: "Hola! Soy un log"
 
@@ -23,6 +29,12 @@ int main(void)
 	/* ---------------- ARCHIVOS DE CONFIGURACION ---------------- */
 
 	config = iniciar_config();
+
+	if (config == NULL) {
+		log_error(logger, "Archivo de configuracion no encontrado");
+		exit(2);
+	}
+	
 
 	// Usando el config creado previamente, leemos los valores del config y los 
 	// dejamos en las variables 'ip', 'puerto' y 'valor'
@@ -40,6 +52,10 @@ int main(void)
 
 	// Creamos una conexión hacia el servidor
 	conexion = crear_conexion(ip, puerto);
+	if (conexion == -1) {
+		log_error(logger, "Error al conectarse con el servidor");
+		exit(3);
+	}
 
 	// Enviamos al servidor el valor de CLAVE como mensaje
 
